@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Avalia'e7'e3o Fogo Azul Online</title>
+  <title>Avaliação Fogo Azul Online</title>
   <style>
     body{margin:0;background:#111;color:white;font-family:Arial,sans-serif;padding:20px}
     .container{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:20px}
@@ -83,7 +83,7 @@
 <body>
   <div class="container">
   <div class="box">
-    <h1>Avalia'e7'e3o Fogo Azul</h1>
+    <h1>Avaliação Fogo Azul</h1>
     <h2 style="color:white;">Cadastro</h2>
 
     <label for="nome">Nome da Usina / Fazenda</label>
@@ -95,7 +95,7 @@
    <div id="legendList"></div>
    <div style="margin-top:2cm;"></div>
   <h2 style="color:white; margin:0;">
-C'edrculo Fogo Azul
+Círculo Fogo Azul
 </h2>
    </div>
 
@@ -269,8 +269,7 @@ svg.insertBefore(fogoExterno, svg.firstChild);
 
 var logo = document.createElementNS(svgNS,"image");
 
-logo.setAttribute("href","Fogo Azul.png");
-logo.setAttributeNS("http://www.w3.org/1999/xlink","href","Fogo Azul.png");
+logo.setAttribute("href","fogo-azul.png");
 logo.setAttribute("x", cx - 65);
 logo.setAttribute("y", cy - 65);
 logo.setAttribute("width", 130);
@@ -479,7 +478,7 @@ var html="<table><thead><tr><th>Usina/Fazenda</th><th>Total</th><th>Data</th></t
         );
       }
 
-      var blob=new Blob([linhas.join("n")], {type:"text/csv;charset=utf-8;"});
+      var blob=new Blob([linhas.join("\n")], {type:"text/csv;charset=utf-8;"});
       var link=document.createElement("a");
       link.href=URL.createObjectURL(blob);
       link.download="respostas_quiz_online.csv";
