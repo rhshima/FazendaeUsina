@@ -419,7 +419,7 @@ if(!nome){
     async function carregarRespostasOnline(){
      if(!supabaseClient){
         document.getElementById("listaRespostas").innerHTML =
-          "<p class='pequeno'>Modo online indispon'edvel no momento.</p>";
+          "<p class='pequeno'>Modo online indisponível no momento.</p>";
         return;
       }
 
@@ -442,7 +442,7 @@ if(!nome){
       var wrap=document.getElementById("listaRespostas");
 
       if(!respostas.length){
-        wrap.innerHTML="<p class='pequeno'>Ainda n'e3o h'e1 respostas online.</p>";
+        wrap.innerHTML="<p class='pequeno'>Ainda não há respostas online.</p>";
         return;
       }
 
@@ -462,7 +462,7 @@ var html="<table><thead><tr><th>Usina/Fazenda</th><th>Total</th><th>Data</th></t
 
     function exportarCSV(){
       if(!respostas.length){
-        alert("N'e3o h'e1 respostas para exportar.");
+        alert("Não há respostas para exportar.");
         return;
       }
 
@@ -520,7 +520,10 @@ var html="<table><thead><tr><th>Usina/Fazenda</th><th>Total</th><th>Data</th></t
       }
 
       var centro=document.getElementById("tituloCentro").value.trim();
-      if(centro) document.getElementById("centerText").textContent=centro;
+      var centerText = document.getElementById("centerText");
+if(centro && centerText){
+  centerText.textContent = centro;
+}
 
       renderLegenda();
       alert("Legenda atualizada nesta página.");
