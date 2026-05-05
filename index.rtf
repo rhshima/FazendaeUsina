@@ -93,11 +93,8 @@
     <h1>Avalia\'e7\'e3o Fogo Azul</h1>\
     <h2 style="color:white;">Cadastro</h2>\
 \
-    <label for="nome">Nome</label>\
-    <input id="nome" type="text" placeholder="Digite seu nome">\
-\
-    <label for="whatsapp">WhatsApp com DDD</label>\
-    <input id="whatsapp" type="text" placeholder="Ex.: 11999998888">\
+    <label for="nome">Nome da Usina / Fazenda</label>
+<input id="nome" type="text" placeholder="Digite o nome da usina ou fazenda">
    <div style="margin-top:1cm;"></div>\
    <h2 style="margin-top:1cm; color:white;">Legenda</h2>\
 \
@@ -395,20 +392,20 @@ function iniciarSupabase()\{\
   \}\
 \}\
     async function finalizarSalvar()\{\
-      var nome=document.getElementById("nome").value.trim();\
-      var whatsapp=document.getElementById("whatsapp").value.trim();\
-\
-      if(!nome)\{ alert("Digite o nome."); return; \}\
-      if(!whatsapp)\{ alert("Digite o WhatsApp com DDD."); return; \}\
-\
+    var nome=document.getElementById("nome").value.trim();
+
+if(!nome){ 
+  alert("Digite o nome da usina ou fazenda."); 
+  return; 
+}
       if(!supabaseClient)\{\
         alert("A roda est\'e1 funcionando, mas o modo online n\'e3o carregou.");\
         return;\
       \}\
 \
-      var registro = \{\
-        nome: nome,\
-        whatsapp: whatsapp,\
+      var registro = {
+  nome: nome,
+  whatsapp: "",
         data_evento: new Date().toISOString(),\
         respostas: estadoAtual.slice(),\
         total: estadoAtual.reduce(function(a,b)\{ return a+b; \}, 0),\
@@ -424,8 +421,7 @@ function iniciarSupabase()\{\
 \
       alert("Resposta enviada com sucesso.");\
       limparResposta();\
-      document.getElementById("nome").value = "";\
-      document.getElementById("whatsapp").value = "";\
+     document.getElementById("nome").value = "";
     \}\
 \
     async function carregarRespostasOnline()\{\
