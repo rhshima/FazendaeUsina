@@ -454,13 +454,11 @@ if(!nome){
         return;\
       \}\
 \
-      var html="<table><thead><tr><th>Nome</th><th>WhatsApp</th><th>Total</th><th>Data</th></tr></thead><tbody>";\
-\
+var html="<table><thead><tr><th>Usina/Fazenda</th><th>Total</th><th>Data</th></tr></thead><tbody>";\
       for(var i=0;i<respostas.length;i++)\{\
         var r=respostas[i];\
         html += "<tr>" +\
           "<td>"+escapeHtml(r.nome || "")+"</td>" +\
-          "<td>"+escapeHtml(r.whatsapp || "")+"</td>" +\
           "<td>"+(r.total || 0)+"</td>" +\
           "<td>"+escapeHtml(new Date(r.data_evento).toLocaleString("pt-BR"))+"</td>" +\
         "</tr>";\
@@ -476,14 +474,13 @@ if(!nome){
         return;\
       \}\
 \
-      var linhas=["nome;whatsapp;data_evento;total;g1;g2;g3;g4;g5;g6;g7;g8;g9;g10;g11;g12"];\
+     var linhas=["usina_fazenda;data_evento;total;g1;g2;g3;g4;g5;g6;g7;g8;g9;g10;g11;g12"];
 \
       for(var i=0;i<respostas.length;i++)\{\
         var r=respostas[i];\
         linhas.push(\
-          (r.nome || "") + ";" +\
-          (r.whatsapp || "") + ";" +\
-          (r.data_evento || "") + ";" +\
+         (r.nome || "") + ";" +
+         (r.data_evento || "") + ";" +
           (r.total || 0) + ";" +\
           ((r.respostas || []).join(";"))\
         );\
